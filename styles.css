@@ -3,13 +3,96 @@
 body {
   margin: 0;
   min-height: 100vh;
-  background: #fcfcfc;
+  background: #008080;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: flex-start;
+  padding: 40px 15px;
+  font-family: "Tahoma", "Segoe UI", Arial, sans-serif;
+}
+
+.game-header {
+  text-align: center;
+  max-width: 500px;
+  margin: 0 auto 20px;
+}
+
+.game-header h1 {
+  font-size: 1.6rem;
+  margin: 0 0 6px;
+  color: #ffffff;
+}
+
+.subtitle {
+  color: #d7ecec;
+  font-size: 0.85rem;
+  margin: 0;
+  line-height: 1.5;
+}
+
+.toolbar {
+  display: flex;
+  gap: 3px;
+  background: #c0c0c0;
+  padding: 4px;
+  margin-bottom: 6px;
+  border-top: 2px solid #ffffff;
+  border-left: 2px solid #ffffff;
+  border-right: 2px solid #4d4d4d;
+  border-bottom: 2px solid #4d4d4d;
+}
+
+.tool-btn {
+  position: relative;
+  width: 30px;
+  height: 28px;
+  background: #c0c0c0;
+  font-size: 0.9rem;
+  line-height: 1;
+  cursor: pointer;
+  border-top: 2px solid #ffffff;
+  border-left: 2px solid #ffffff;
+  border-right: 2px solid #4d4d4d;
+  border-bottom: 2px solid #4d4d4d;
   display: flex;
   align-items: center;
   justify-content: center;
-  padding: 30px 15px;
-  font-family: "Tahoma", "Segoe UI", Arial, sans-serif;
 }
+
+.tool-btn:hover {
+  background: #d5d5d5;
+}
+
+.tool-btn:active {
+  border-top: 2px solid #4d4d4d;
+  border-left: 2px solid #4d4d4d;
+  border-right: 2px solid #ffffff;
+  border-bottom: 2px solid #ffffff;
+}
+
+.zoom-sign {
+  position: absolute;
+  bottom: 1px;
+  right: 3px;
+  font-size: 0.6rem;
+  font-weight: bold;
+  color: #000;
+}
+
+.badge-mini {
+  position: absolute;
+  bottom: 0;
+  right: 2px;
+  font-size: 0.55rem;
+  font-weight: bold;
+  color: #fff;
+  border-radius: 2px;
+  padding: 0 2px;
+}
+
+.badge-mini.blue { background: #1d4ed8; }
+.badge-mini.red { background: #dc2626; }
 
 .window {
   background: #c0c0c0;
