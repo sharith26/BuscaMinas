@@ -19,7 +19,6 @@ body {
   box-shadow: 0 4px 18px rgba(20, 30, 60, 0.08);
 }
 
-/* ===== BANNER ===== */
 .banner {
   background: linear-gradient(120deg, #3a5bf0, #2c46c9);
   padding: 22px 28px;
@@ -53,7 +52,6 @@ body {
   margin: 0;
 }
 
-/* ===== CONTENT ===== */
 .content {
   display: grid;
   grid-template-columns: 300px 1fr;
@@ -70,7 +68,6 @@ body {
   gap: 8px;
 }
 
-/* ===== CONFIGURACIÓN ===== */
 .field {
   margin-bottom: 16px;
 }
@@ -136,7 +133,6 @@ body {
   line-height: 1.4;
 }
 
-/* ===== STATS ROW ===== */
 .stats-row {
   display: grid;
   grid-template-columns: 1fr 1fr;
@@ -167,7 +163,6 @@ body {
   margin: 0;
 }
 
-/* ===== TABLERO / HISTORIAL CARD ===== */
 .history-card {
   background: #f7f8fb;
   border: 1px solid #e5e8ee;
@@ -247,7 +242,6 @@ body {
 .num-7 { color: #1f2430; }
 .num-8 { color: #6b7280; }
 
-/* ===== LEYENDA ===== */
 .legend {
   display: flex;
   flex-wrap: wrap;
@@ -268,7 +262,6 @@ body {
   font-size: 0.75rem;
 }
 
-/* ===== RESPONSIVE ===== */
 @media (max-width: 760px) {
   .content {
     grid-template-columns: 1fr;
