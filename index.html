@@ -3,128 +3,181 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Buscaminas</title>
+<title>Juego: Buscaminas</title>
 <link rel="stylesheet" href="styles.css">
 </head>
 <body>
 
-  <header class="game-header">
-    <h1>Buscaminas</h1>
-    <p class="subtitle">Descubre todas las casillas sin pisar una mina. Cada número indica cuántas minas hay en las casillas vecinas.</p>
-  </header>
+  <div class="app">
 
-  <div class="window">
+    <!-- ===== BANNER SUPERIOR ===== -->
+    <header class="banner">
+      <div class="banner-icon">💣</div>
+      <div class="banner-text">
+        <h1>Juego: Buscaminas</h1>
+        <p>Descubre todas las casillas sin pisar una mina.</p>
+      </div>
+    </header>
 
-    <div class="toolbar">
-      <button class="tool-btn" title="Acercar">🔍<span class="zoom-sign">+</span></button>
-      <button class="tool-btn" title="Alejar">🔍<span class="zoom-sign">−</span></button>
-      <button class="tool-btn" title="Favorito">⭐</button>
-      <button class="tool-btn" title="Marcar">🚩</button>
-      <button class="tool-btn" title="Jugadores">👤<span class="badge-mini blue">1</span></button>
-      <button class="tool-btn" title="Jugadores">👤<span class="badge-mini red">2</span></button>
-      <button class="tool-btn" title="Ayuda">❓</button>
-      <button class="tool-btn" title="Confirmar">✔️</button>
-    </div>
+    <!-- ===== CONTENIDO ===== -->
+    <main class="content">
 
-    <div class="top-frame">
-      <div class="counter">0&nbsp;1&nbsp;0</div>
-      <button class="smiley-btn" title="Reiniciar">&#9785;</button>
-      <div class="counter">0&nbsp;0&nbsp;8</div>
-    </div>
+      <!-- ===== CONFIGURACIÓN ===== -->
+      <section class="panel panel-config">
+        <h2><span class="icon">⚙️</span> Configuración</h2>
 
-    <div class="board-frame">
-      <div class="board">
-      <div class="row">
-        <span class="cell revealed"></span>
-        <span class="cell revealed"></span>
-        <span class="cell revealed"></span>
-        <span class="cell revealed"></span>
-        <span class="cell revealed num-1">1</span>
-        <span class="cell hidden"></span>
-        <span class="cell hidden"></span>
-        <span class="cell revealed mine-hit"><span class="mine-icon"><span></span></span></span>
-        <span class="cell hidden"></span>
-      </div>
-      <div class="row">
-        <span class="cell revealed"></span>
-        <span class="cell revealed"></span>
-        <span class="cell revealed"></span>
-        <span class="cell revealed num-1">1</span>
-        <span class="cell revealed num-1">1</span>
-        <span class="cell hidden"></span>
-        <span class="cell revealed"><span class="mine-icon"><span></span></span></span>
-        <span class="cell hidden"></span>
-        <span class="cell hidden"></span>
-      </div>
-      <div class="row">
-        <span class="cell revealed num-1">1</span>
-        <span class="cell revealed num-1">1</span>
-        <span class="cell revealed num-1">1</span>
-        <span class="cell revealed num-1">1</span>
-        <span class="cell revealed num-1">1</span>
-        <span class="cell revealed num-2">2</span>
-        <span class="cell revealed"><span class="mine-icon"><span></span></span></span>
-        <span class="cell hidden"></span>
-        <span class="cell hidden"></span>
-      </div>
-      <div class="row">
-        <span class="cell hidden"></span>
-        <span class="cell revealed"><span class="mine-icon"><span></span></span></span>
-        <span class="cell revealed num-1">1</span>
-        <span class="cell revealed num-1">1</span>
-        <span class="cell revealed num-2">2</span>
-        <span class="cell hidden"></span>
-        <span class="cell revealed"><span class="mine-icon"><span></span></span></span>
-        <span class="cell hidden"></span>
-        <span class="cell hidden"></span>
-      </div>
-      <div class="row">
-        <span class="cell revealed num-1">1</span>
-        <span class="cell revealed num-1">1</span>
-        <span class="cell revealed num-1">1</span>
-        <span class="cell hidden"></span>
-        <span class="cell revealed num-2">2</span>
-        <span class="cell revealed"><span class="mine-icon"><span></span></span></span>
-        <span class="cell hidden"></span>
-        <span class="cell hidden"></span>
-        <span class="cell hidden"></span>
-      </div>
-      <div class="row">
-        <span class="cell revealed"></span>
-        <span class="cell revealed"></span>
-        <span class="cell revealed num-1">1</span>
-        <span class="cell revealed num-1">1</span>
-        <span class="cell revealed num-2">2</span>
-        <span class="cell revealed"><span class="mine-icon"><span></span></span></span>
-        <span class="cell hidden"></span>
-        <span class="cell hidden"></span>
-        <span class="cell hidden"></span>
-      </div>
-      <div class="row">
-        <span class="cell revealed"></span>
-        <span class="cell revealed"></span>
-        <span class="cell revealed"></span>
-        <span class="cell revealed num-1">1</span>
-        <span class="cell revealed num-1">1</span>
-        <span class="cell hidden"></span>
-        <span class="cell hidden"></span>
-        <span class="cell hidden"></span>
-        <span class="cell hidden"></span>
-      </div>
-      <div class="row">
-        <span class="cell revealed"></span>
-        <span class="cell revealed"></span>
-        <span class="cell revealed"></span>
-        <span class="cell revealed num-1">1</span>
-        <span class="cell revealed num-1">1</span>
-        <span class="cell hidden"></span>
-        <span class="cell hidden"></span>
-        <span class="cell hidden"></span>
-        <span class="cell hidden"></span>
-      </div>
-      </div>
-    </div>
+        <div class="field">
+          <label>Filas</label>
+          <div class="stepper-input">
+            <input type="text" value="8" disabled>
+            <span class="stepper-arrows">▲▼</span>
+          </div>
+        </div>
 
+        <div class="field">
+          <label>Columnas</label>
+          <div class="stepper-input">
+            <input type="text" value="9" disabled>
+            <span class="stepper-arrows">▲▼</span>
+          </div>
+        </div>
+
+        <div class="field">
+          <label>Cantidad de minas</label>
+          <div class="stepper-input">
+            <input type="text" value="10" disabled>
+            <span class="stepper-arrows">▲▼</span>
+          </div>
+        </div>
+
+        <button class="btn btn-save">🔄 Nueva partida</button>
+        <p class="hint">Aplica la configuración para iniciar un nuevo tablero.</p>
+      </section>
+
+      <!-- ===== SIMULACIÓN ===== -->
+      <section class="panel panel-sim">
+        <h2><span class="icon">🎮</span> Simulación del juego</h2>
+
+        <div class="stats-row">
+          <div class="stat-card">
+            <h3>💣 Minas restantes</h3>
+            <p class="stat-value">10</p>
+          </div>
+
+          <div class="stat-card">
+            <h3>⏱️ Tiempo transcurrido</h3>
+            <p class="stat-value">008s</p>
+          </div>
+        </div>
+
+        <div class="history-card">
+          <h3>🧩 Tablero</h3>
+          <div class="board-frame">
+            <div class="board">
+            <div class="row">
+              <span class="cell revealed"></span>
+              <span class="cell revealed"></span>
+              <span class="cell revealed"></span>
+              <span class="cell revealed"></span>
+              <span class="cell revealed num-1">1</span>
+              <span class="cell hidden"></span>
+              <span class="cell hidden"></span>
+              <span class="cell hidden flagged">🚩</span>
+              <span class="cell hidden flagged">🚩</span>
+            </div>
+            <div class="row">
+              <span class="cell revealed"></span>
+              <span class="cell revealed"></span>
+              <span class="cell revealed"></span>
+              <span class="cell revealed num-1">1</span>
+              <span class="cell revealed num-1">1</span>
+              <span class="cell hidden"></span>
+              <span class="cell revealed mine">💣</span>
+              <span class="cell hidden"></span>
+              <span class="cell hidden"></span>
+            </div>
+            <div class="row">
+              <span class="cell revealed num-1">1</span>
+              <span class="cell revealed num-1">1</span>
+              <span class="cell revealed num-1">1</span>
+              <span class="cell revealed num-1">1</span>
+              <span class="cell revealed num-1">1</span>
+              <span class="cell revealed num-2">2</span>
+              <span class="cell revealed mine">💣</span>
+              <span class="cell hidden"></span>
+              <span class="cell hidden"></span>
+            </div>
+            <div class="row">
+              <span class="cell hidden"></span>
+              <span class="cell revealed mine">💣</span>
+              <span class="cell revealed num-1">1</span>
+              <span class="cell revealed num-1">1</span>
+              <span class="cell revealed num-2">2</span>
+              <span class="cell hidden"></span>
+              <span class="cell revealed mine">💣</span>
+              <span class="cell hidden flagged">🚩</span>
+              <span class="cell hidden"></span>
+            </div>
+            <div class="row">
+              <span class="cell revealed num-1">1</span>
+              <span class="cell revealed num-1">1</span>
+              <span class="cell revealed num-1">1</span>
+              <span class="cell hidden"></span>
+              <span class="cell revealed num-2">2</span>
+              <span class="cell revealed mine">💣</span>
+              <span class="cell hidden"></span>
+              <span class="cell hidden"></span>
+              <span class="cell hidden"></span>
+            </div>
+            <div class="row">
+              <span class="cell revealed"></span>
+              <span class="cell revealed"></span>
+              <span class="cell revealed num-1">1</span>
+              <span class="cell revealed num-1">1</span>
+              <span class="cell revealed num-2">2</span>
+              <span class="cell revealed mine">💣</span>
+              <span class="cell hidden"></span>
+              <span class="cell hidden"></span>
+              <span class="cell hidden"></span>
+            </div>
+            <div class="row">
+              <span class="cell revealed"></span>
+              <span class="cell revealed"></span>
+              <span class="cell revealed"></span>
+              <span class="cell revealed num-1">1</span>
+              <span class="cell revealed num-1">1</span>
+              <span class="cell hidden"></span>
+              <span class="cell hidden"></span>
+              <span class="cell hidden"></span>
+              <span class="cell hidden"></span>
+            </div>
+            <div class="row">
+              <span class="cell revealed"></span>
+              <span class="cell revealed"></span>
+              <span class="cell revealed"></span>
+              <span class="cell revealed num-1">1</span>
+              <span class="cell revealed num-1">1</span>
+              <span class="cell hidden"></span>
+              <span class="cell hidden"></span>
+              <span class="cell hidden"></span>
+              <span class="cell hidden"></span>
+            </div>
+            </div>
+          </div>
+        </div>
+
+        <div class="history-card">
+          <h3>💬 Leyenda</h3>
+          <div class="legend">
+            <div class="legend-item"><span class="cell hidden"></span> Sin descubrir</div>
+            <div class="legend-item"><span class="cell hidden flagged">🚩</span> Marcada con bandera</div>
+            <div class="legend-item"><span class="cell revealed num-1">1</span> Casilla revelada con número</div>
+            <div class="legend-item"><span class="cell revealed mine">💣</span> Mina</div>
+          </div>
+        </div>
+      </section>
+
+    </main>
   </div>
 
 </body>
