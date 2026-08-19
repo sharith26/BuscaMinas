@@ -262,6 +262,22 @@ body {
   font-size: 0.75rem;
 }
 
+.hint-inline {
+  font-size: 0.7rem;
+  color: #9aa2b1;
+  font-weight: 400;
+}
+
+#estadoJuego {
+  margin: 0 0 12px;
+  text-align: left;
+}
+
+.stat-value-win { color: #1cae5c !important; font-weight: 700; }
+.stat-value-lose { color: #dc3545 !important; font-weight: 700; }
+
+.cell.hidden { cursor: pointer; }
+
 @media (max-width: 760px) {
   .content {
     grid-template-columns: 1fr;
