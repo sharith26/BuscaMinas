@@ -189,17 +189,6 @@ body {
   padding: 10px;
 }
 
-.board {
-  display: flex;
-  flex-direction: column;
-  gap: 4px;
-}
-
-.row {
-  display: flex;
-  gap: 4px;
-}
-
 .cell {
   width: 30px;
   height: 30px;
@@ -275,8 +264,6 @@ body {
 
 .stat-value-win { color: #1cae5c !important; font-weight: 700; }
 .stat-value-lose { color: #dc3545 !important; font-weight: 700; }
-
-.cell.hidden { cursor: pointer; }
 
 @media (max-width: 760px) {
   .content {

@@ -7,9 +7,7 @@
 <link rel="stylesheet" href="styles.css">
 </head>
 <body>
-
   <div class="app">
-
     <header class="banner">
       <div class="banner-icon">💣</div>
       <div class="banner-text">
@@ -17,12 +15,9 @@
         <p>Descubre todas las casillas sin pisar una mina.</p>
       </div>
     </header>
-
     <main class="content">
-
       <section class="panel panel-config">
         <h2><span class="icon">⚙️</span> Configuración</h2>
-
         <div class="field">
           <label>Filas</label>
           <div class="stepper-input">
@@ -30,7 +25,6 @@
             <span class="stepper-arrows">▲▼</span>
           </div>
         </div>
-
         <div class="field">
           <label>Columnas</label>
           <div class="stepper-input">
@@ -38,7 +32,6 @@
             <span class="stepper-arrows">▲▼</span>
           </div>
         </div>
-
         <div class="field">
           <label>Cantidad de minas</label>
           <div class="stepper-input">
@@ -46,34 +39,28 @@
             <span class="stepper-arrows">▲▼</span>
           </div>
         </div>
-
         <button class="btn btn-save" id="btnNuevaPartida">🔄 Nueva partida</button>
         <p class="hint" id="cfgHint">Aplica la configuración para iniciar un nuevo tablero.</p>
       </section>
-
-¿      <section class="panel panel-sim">
+      <section class="panel panel-sim">
         <h2><span class="icon">🎮</span> Simulación del juego</h2>
-
         <div class="stats-row">
           <div class="stat-card">
             <h3>💣 Minas restantes</h3>
             <p class="stat-value" id="minasRestantes">10</p>
           </div>
-
           <div class="stat-card">
             <h3>⏱️ Tiempo transcurrido</h3>
             <p class="stat-value" id="tiempoValue">000s</p>
           </div>
         </div>
-
         <div class="history-card">
           <h3>🧩 Tablero <span class="hint-inline">(clic izquierdo: descubrir · clic derecho: bandera)</span></h3>
           <p class="stat-caption" id="estadoJuego">Haz clic en una casilla para comenzar.</p>
           <div class="board-frame">
-            <div class="board" id="board"></div>
+            <div id="container"></div>
           </div>
         </div>
-
         <div class="history-card">
           <h3>💬 Leyenda</h3>
           <div class="legend">
@@ -84,10 +71,8 @@
           </div>
         </div>
       </section>
-
     </main>
   </div>
-
   <script src="script.js"></script>
 </body>
 </html>

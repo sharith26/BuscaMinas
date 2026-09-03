@@ -9,7 +9,7 @@ document.addEventListener('DOMContentLoaded', () => {
   const minasRestantesEl = document.getElementById('minasRestantes');
   const tiempoValueEl = document.getElementById('tiempoValue');
   const estadoJuegoEl = document.getElementById('estadoJuego');
-  const boardEl = document.getElementById('board');
+  const container = document.getElementById('container');
 
   let filas = 8;
   let columnas = 9;
@@ -62,6 +62,13 @@ document.addEventListener('DOMContentLoaded', () => {
     }
   }
 
+  function configurarGrid() {
+    container.style.display = 'grid';
+    container.style.gridTemplateColumns = `repeat(${filas}, 30px)`;
+    container.style.gridTemplateRows = `repeat(${columnas}, 30px)`;
+    container.style.gap = '2px';
+  }
+
   function iniciarPartida() {
     if (cronometro) clearInterval(cronometro);
     segundos = 0;
@@ -76,6 +83,7 @@ document.addEventListener('DOMContentLoaded', () => {
     estadoJuegoEl.textContent = 'Haz clic en una casilla para comenzar.';
     estadoJuegoEl.classList.remove('stat-value-win', 'stat-value-lose');
 
+    configurarGrid();
     renderBoard();
   }
 
@@ -138,6 +146,20 @@ document.addEventListener('DOMContentLoaded', () => {
     renderBoard();
   }
 
+  function activar(obj) {
+    const id = Number.parseInt(obj.dataset.id);
+    const f = Math.floor(id / columnas);
+    const c = id % columnas;
+    manejarClicIzquierdo(f, c);
+  }
+
+  function marcar(e, obj) {
+    const id = Number.parseInt(obj.dataset.id);
+    const f = Math.floor(id / columnas);
+    const c = id % columnas;
+    manejarClicDerecho(e, f, c);
+  }
+
   function perderJuego() {
     juegoTerminado = true;
     clearInterval(cronometro);
@@ -161,43 +183,50 @@ document.addEventListener('DOMContentLoaded', () => {
   }
 
   function renderBoard() {
-    boardEl.innerHTML = '';
+    let html = '';
     for (let r = 0; r < filas; r++) {
-      const rowDiv = document.createElement('div');
-      rowDiv.className = 'row';
       for (let c = 0; c < columnas; c++) {
         const celda = tablero[r][c];
-        const span = document.createElement('span');
+        const id = r * columnas + c;
+        let clase = 'cell';
+        let contenido = '';
 
         if (celda.revelada) {
           if (celda.mina) {
-            span.className = 'cell revealed mine';
-            span.textContent = '💣';
+            clase += ' revealed mine';
+            contenido = '💣';
           } else if (celda.numero > 0) {
-            span.className = `cell revealed num-${celda.numero}`;
-            span.textContent = celda.numero;
+            clase += ` revealed num-${celda.numero}`;
+            contenido = celda.numero;
           } else {
-            span.className = 'cell revealed';
+            clase += ' revealed';
           }
         } else if (celda.bandera) {
-          span.className = 'cell hidden flagged';
-          span.textContent = '🚩';
+          clase += ' hidden flagged';
+          contenido = '🚩';
         } else {
-          span.className = 'cell hidden';
+          clase += ' hidden';
         }
 
-        span.addEventListener('click', () => manejarClicIzquierdo(r, c));
-        span.addEventListener('contextmenu', (e) => manejarClicDerecho(e, r, c));
-        rowDiv.appendChild(span);
+        html += `<div class="${clase}" data-id="${id}">${contenido}</div>`;
       }
-      boardEl.appendChild(rowDiv);
     }
+
+    container.innerHTML = html;
+
+    container.querySelectorAll('.cell').forEach(span => {
+      span.addEventListener('click', () => activar(span));
+      span.addEventListener('contextmenu', (e) => marcar(e, span));
+    });
   }
 
   btnNuevaPartida.addEventListener('click', () => {
     const nuevaFilas = parseInt(cfgFilas.value, 10);
     const nuevaColumnas = parseInt(cfgColumnas.value, 10);
     const nuevaMinas = parseInt(cfgMinas.value, 10);
+
+    console.log('Filas capturadas:', nuevaFilas);
+    console.log('Columnas capturadas:', nuevaColumnas);
 
     if (isNaN(nuevaFilas) || nuevaFilas < 5 || isNaN(nuevaColumnas) || nuevaColumnas < 5) {
       alert('Filas y columnas deben ser al menos 5.');
